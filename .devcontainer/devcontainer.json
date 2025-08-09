@@ -1,5 +1,5 @@
 {
-  "name": "Python 3 AI Learning Platform",
+  "name": "Python 3 Streamlit App",
   "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
   "customizations": {
     "codespaces": {
@@ -9,18 +9,20 @@
       ]
     },
     "vscode": {
-      "settings": {},
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance"
       ]
     }
   },
-  "updateContentCommand": "if [ -f packages.txt ]; then sudo apt-get update && sudo apt-get upgrade -y && sudo xargs -a packages.txt sudo apt-get install -y; fi; if [ -f requirements.txt ]; then pip3 install --user -r requirements.txt; fi; pip3 install --user streamlit",
+  "updateContentCommand": "if [ -f packages.txt ]; then sudo apt-get update && sudo apt-get upgrade -y && sudo xargs -a packages.txt sudo apt-get install -y; fi; if [ -f requirements.txt ]; then pip install -r requirements.txt; fi",
   "postAttachCommand": "streamlit run app.py --server.enableCORS false --server.enableXsrfProtection false",
   "portsAttributes": {
     "8501": {
-      "label": "Application",
+      "label": "Streamlit App",
       "onAutoForward": "openPreview"
     }
   },
